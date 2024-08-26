@@ -1,0 +1,347 @@
+[Master]
+Implementation=2
+FontFace=Tahoma
+FontHeight=-19
+FontWeight=400
+ZoomRatio=1
+[Settings]
+Name=
+EnvVars=
+RefreshPeriod=500
+EmbeddedImage=
+PingAddr=
+[General]
+Sources=1
+Tables=0
+Layers=33
+[Source0]
+Name=IsReflexLatencyAvailable
+Units=
+Format=
+Formula=validate("NVIDIA Reflex GPU Render latency")
+Provider=HAL
+ID=Stub
+[Layer0]
+Name=Background
+Text=
+PositionX=0
+PositionY=0
+ExtentX=-64
+ExtentY=-18
+ExtentOrigin=0
+BgndColor=80000000
+[Layer1]
+Name=RTSS header
+Text=<EXE> : <RES> <API> <ARCH>
+PositionX=0
+PositionY=0
+ExtentX=-64
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FFFFFF
+BgndColor=404040
+[Layer2]
+Name=RTSS frametime graph fill
+Text=<G=Frametime,0,0,1,0,50,1>
+PositionX=0
+PositionY=-1
+ExtentX=-64
+ExtentY=-8
+ExtentOrigin=0
+TextColor=80804040
+[Layer3]
+Name=RTSS frametime graph
+Text=<G=Frametime,0,0,1,0,50,0>
+PositionX=0
+PositionY=-1
+ExtentX=-64
+ExtentY=-8
+ExtentOrigin=0
+TextColor=FF8080
+[Layer4]
+Name=RTSS frametime caption
+Text=Frametime
+PositionX=0
+PositionY=-1
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FF8080
+[Layer5]
+Name=RTSS frametime
+Text=<FT> ms
+PositionX=-10
+PositionY=-1
+ExtentX=-8
+ExtentY=-1
+ExtentOrigin=2
+TextColor=FF8080
+[Layer6]
+Name=RTSS framerate
+Text=<FR> fps
+PositionX=-48
+PositionY=-1
+ExtentX=-2
+ExtentY=-2
+ExtentOrigin=0
+Alignment=-8
+Size=200
+TextColor=FF8080
+[Layer7]
+Name=Sim-To-Render latency
+VisibilitySource=IsReflexLatencyAvailable
+Text=NVIDIA Reflex Sim-To-Render latency : %NVIDIA Reflex Sim-To-Render latency% ms
+PositionX=0
+PositionY=-9
+ExtentX=-64
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FFFFFF
+BgndColor=404040
+[Layer8]
+Name=Input sample caption
+VisibilitySource=IsReflexLatencyAvailable
+Text=Input
+PositionX=0
+PositionY=-10
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=C0C0C0
+[Layer9]
+Name=Input sample timespan
+VisibilitySource=IsReflexLatencyAvailable
+Text=<G=NVIDIA Reflex Input Sample timespan,0,0,1,0,100,2000>
+PositionX=-19
+PositionY=-10
+ExtentX=-45
+ExtentY=-1
+ExtentOrigin=0
+TextColor=C0C0C0
+[Layer10]
+Name=Simulation caption
+VisibilitySource=IsReflexLatencyAvailable
+Text=Simulation
+PositionX=0
+PositionY=-11
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FFF080
+[Layer11]
+Name=Simulation latency
+VisibilitySource=IsReflexLatencyAvailable
+Text=%NVIDIA Reflex Sim latency% ms
+PositionX=-10
+PositionY=-11
+ExtentX=-8
+ExtentY=-1
+ExtentOrigin=2
+TextColor=FFF080
+[Layer12]
+Name=Simulation timespan
+VisibilitySource=IsReflexLatencyAvailable
+Text=<G=NVIDIA Reflex Sim timespan,0,0,1,0,100,2000>
+PositionX=-19
+PositionY=-11
+ExtentX=-45
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FFF080
+[Layer13]
+Name=Render Submit caption
+VisibilitySource=IsReflexLatencyAvailable
+Text=Render submit
+PositionX=0
+PositionY=-12
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=A0FF80
+[Layer14]
+Name=Render submit latency
+VisibilitySource=IsReflexLatencyAvailable
+Text=%NVIDIA Reflex Render Submit latency% ms
+PositionX=-10
+PositionY=-12
+ExtentX=-8
+ExtentY=-1
+ExtentOrigin=2
+TextColor=A0FF80
+[Layer15]
+Name=Render submt timespan
+VisibilitySource=IsReflexLatencyAvailable
+Text=<G=NVIDIA Reflex Render Submit timespan,0,0,1,0,100,2000>
+PositionX=-19
+PositionY=-12
+ExtentX=-45
+ExtentY=-1
+ExtentOrigin=0
+TextColor=A0FF80
+[Layer16]
+Name=Present caption
+VisibilitySource=IsReflexLatencyAvailable
+Text=Present
+PositionX=0
+PositionY=-13
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=80C8FF
+[Layer17]
+Name=Present latency
+VisibilitySource=IsReflexLatencyAvailable
+Text=%NVIDIA Reflex Present latency% ms
+PositionX=-10
+PositionY=-13
+ExtentX=-8
+ExtentY=-1
+ExtentOrigin=2
+TextColor=80C8FF
+[Layer18]
+Name=Present timespan
+VisibilitySource=IsReflexLatencyAvailable
+Text=<G=NVIDIA Reflex Present timespan,0,0,1,0,100,2000>
+PositionX=-19
+PositionY=-13
+ExtentX=-45
+ExtentY=-1
+ExtentOrigin=0
+TextColor=80C8FF
+[Layer19]
+Name=Driver caption
+VisibilitySource=IsReflexLatencyAvailable
+Text=Driver
+PositionX=0
+PositionY=-14
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=A080FF
+[Layer20]
+Name=Driver latency
+VisibilitySource=IsReflexLatencyAvailable
+Text=%NVIDIA Reflex Driver latency% ms
+PositionX=-10
+PositionY=-14
+ExtentX=-8
+ExtentY=-1
+ExtentOrigin=2
+TextColor=A080FF
+[Layer21]
+Name=Driver timespan
+VisibilitySource=IsReflexLatencyAvailable
+Text=<G=NVIDIA Reflex Driver timespan,0,0,1,0,100,2000>
+PositionX=-19
+PositionY=-14
+ExtentX=-45
+ExtentY=-1
+ExtentOrigin=0
+TextColor=A080FF
+[Layer22]
+Name=OS queue caption
+VisibilitySource=IsReflexLatencyAvailable
+Text=Render queue
+PositionX=0
+PositionY=-15
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FF80F0
+[Layer23]
+Name=OS queue latency
+VisibilitySource=IsReflexLatencyAvailable
+Text=%NVIDIA Reflex Os Render Queue latency% ms
+PositionX=-10
+PositionY=-15
+ExtentX=-8
+ExtentY=-1
+ExtentOrigin=2
+TextColor=FF80F0
+[Layer24]
+Name=OS queue timespan
+VisibilitySource=IsReflexLatencyAvailable
+Text=<G=NVIDIA Reflex OS Render Queue timespan,0,0,1,0,100,2000>
+PositionX=-19
+PositionY=-15
+ExtentX=-45
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FF80F0
+[Layer25]
+Name=GPU Rener caption
+VisibilitySource=IsReflexLatencyAvailable
+Text=GPU Render
+PositionX=0
+PositionY=-16
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FF8080
+[Layer26]
+Name=GPU Render latency
+VisibilitySource=IsReflexLatencyAvailable
+Text=%NVIDIA Reflex GPU Render latency% ms
+PositionX=-10
+PositionY=-16
+ExtentX=-8
+ExtentY=-1
+ExtentOrigin=2
+TextColor=FF8080
+[Layer27]
+Name=GPU Render timespan
+VisibilitySource=IsReflexLatencyAvailable
+Text=<G=NVIDIA Reflex GPU Render timespan,0,0,1,0,100,2000>
+PositionX=-19
+PositionY=-16
+ExtentX=-45
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FF8080
+[Layer28]
+Name=Reflex status
+Text=<IF !IsReflexLatencyAvailable>NVIDIA Reflex latency data is not available...
+PositionX=-10
+PositionY=-12
+ExtentX=-44
+ExtentY=-2
+ExtentOrigin=4
+TextColor=FFFFFF
+[Layer29]
+Name=GPU Active caption
+VisibilitySource=IsReflexLatencyAvailable
+Text=GPU Active
+PositionX=0
+PositionY=-17
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FF6060
+[Layer30]
+Name=GPU Active time
+VisibilitySource=IsReflexLatencyAvailable
+Text=%NVIDIA Reflex GPU Active% ms
+PositionX=-10
+PositionY=-17
+ExtentX=-8
+ExtentY=-1
+ExtentOrigin=2
+TextColor=FF6060
+[Layer31]
+Name=GPU Active timespan
+VisibilitySource=IsReflexLatencyAvailable
+Text=<G=NVIDIA Reflex GPU Active timespan,0,0,1,0,100,2000>
+PositionX=-19
+PositionY=-17
+ExtentX=-45
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FF6060
+[Layer32]
+Name=Cursor position placeholder
+Text=" \b"
+PositionX=0
+PositionY=-18
+ExtentX=0
+ExtentY=0
+ExtentOrigin=0

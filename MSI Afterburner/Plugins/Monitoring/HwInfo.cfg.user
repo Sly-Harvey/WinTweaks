@@ -1,0 +1,107 @@
+[Global]
+Sources=11
+[Source0]
+ReadingType=1
+ReadingName=Motherboard
+Name=Motherboard temperature
+Units=°C
+Group=MOBO
+MaxLimit=100.0
+MinLimit=0.0
+SourceID=F2
+[Source1]
+ReadingType=1
+ReadingName=CPU
+Name=CPU temperature
+Units=°C
+Group=CPU
+MaxLimit=100.0
+MinLimit=0.0
+SourceID=80
+SourceInstance=FFFFFFFF
+[Source2]
+ReadingType=3
+ReadingName=CPU
+Name=CPU fan speed
+Units=RPM
+Group=CPU
+MaxLimit=5000.0
+MinLimit=0.0
+SourceID=F1
+SourceInstance=FFFFFFFF
+[Source3]
+ReadingType=2
+ReadingName=VCore
+Name=CPU voltage
+Units=V
+Group=CPU
+Format=%.3f
+MaxLimit=2.0
+MinLimit=0.0
+SourceID=F1
+SourceInstance=FFFFFFFF
+[Source4]
+ReadingType=6
+ReadingName=Memory Clock
+SensorInst=1
+Name=Memory Clock
+Units=MHz
+MaxLimit=100.0
+MinLimit=0.0
+SourceID=FF
+SourceInstance=1
+[Source5]
+ReadingType=6
+ReadingName=GPU Memory Clock
+SensorInst=0
+Name=GPU Memory Clock
+Units=MHz
+MaxLimit=100.0
+MinLimit=0.0
+SourceID=FF
+[Source6]
+ReadingType=8
+ReadingName=Physical Memory Used
+SensorInst=0
+Name=Physical Memory Used
+Units=MB
+MaxLimit=100.0
+MinLimit=0.0
+SourceID=F3
+[Source7]
+ReadingType=6
+ReadingName=Memory Clock
+SensorInst=1
+Name=Memory Clock
+Units=MHz
+MaxLimit=100.0
+MinLimit=0.0
+SourceID=F3
+SourceInstance=1
+[Source8]
+ReadingType=8
+ReadingName=Frame Time
+SensorInst=0
+Name=Frame Time
+Units=ms
+MaxLimit=100.0
+MinLimit=0.0
+SourceID=FF
+[Source9]
+ReadingType=1
+ReadingName=GPU Hot Spot Temperature
+SensorInst=0
+Name=GPU Hot Spot Temperature
+Units=°C
+MaxLimit=100.0
+MinLimit=0.0
+SourceID=FF
+[Source10]
+ReadingType=7
+ReadingName=GPU Memory Usage
+SensorInst=0
+Name=GPU Memory Usage
+Units=%
+MaxLimit=100.0
+MinLimit=0.0
+SourceID=FF
