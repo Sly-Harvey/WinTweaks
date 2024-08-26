@@ -1,5 +1,4 @@
 ﻿Windows Registry Editor Version 5.00
-;; # System Memory: 3960MB
 
 [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
 "BypassTPMCheck"=dword:00000001
@@ -14,6 +13,7 @@
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters]
 "KeyboardDataQueueSize"=dword:0000001E
+
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mouclass\Parameters]
 "MouseDataQueueSize"=dword:0000001E
 
