@@ -1,5 +1,8 @@
 ﻿Windows Registry Editor Version 5.00
 
+[HKEY_CURRENT_USER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32]
+@=""
+
 [HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
 "BypassTPMCheck"=dword:00000001
 "BypassSecureBootCheck"=dword:00000001
@@ -12,10 +15,10 @@
 "SystemResponsiveness"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters]
-"KeyboardDataQueueSize"=dword:0000001E
+"KeyboardDataQueueSize"=dword:0000000C
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mouclass\Parameters]
-"MouseDataQueueSize"=dword:0000001E
+"MouseDataQueueSize"=dword:00000010
 
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games]
 "GPU Priority"=dword:00000008
@@ -23,21 +26,26 @@
 "Scheduling Category"="High"
 "SFIO Priority"="High"
 
+;; All values are in hex format
+;; Fixed = consistent
+;; Variable = higher fps but inconsistent (Try this if your cpu gets hot)
+;; Short = better input latency
+;; Long = game is smooth like butter
+;; FG (Forground Boost) = Prioritize forground apps that have focus. good for games but bad for streaming/recording, etc.
 
-;; # Fixed = consistent
-;; # Variable = higher fps but inconsistent (Try this if your cpu gets hot)
+;; Short-Fixed values: 28, 2A (FG)
+;; Short-Variable values: 24, 26 (FG)
+;; Long-Variable values: 14, 16 (FG)
 
-;; # Short = better input latency but higher cpu usage
-;; # Long = lower cpu usage but worse input latency
-
-;; # FG (Forground Boost) = Prioritize forground apps that have focus such as games. good for games bad for streaming/recording
-
-;; # Short-Fixed values: 28, 2A (FG)
-;; # Short-Variable values: 24, 26 (FG)
-;; # Long-Variable values: 14, 16 (FG)
-;; # Suggestion: 2A (Smooth) or 28 (Better input latency)
+;; Suggestions: 28 (Best input latency), 16 (Super smooth) or you can try other values (:
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
 "Win32PrioritySeparation"=dword:00000028
 
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management\PrefetchParameters]
+"EnablePrefetcher"=dword:00000000
 
+[HKEY_CURRENT_USER\Control Panel\Mouse]
+"MouseHoverTime"="10"
 
+[HKEY_CURRENT_USER\Control Panel\Desktop]
+"MenuShowDelay"="0"
