@@ -1,0 +1,43 @@
+﻿Windows Registry Editor Version 5.00
+;; # System Memory: 3960MB
+
+[HKEY_LOCAL_MACHINE\SYSTEM\Setup\LabConfig]
+"BypassTPMCheck"=dword:00000001
+"BypassSecureBootCheck"=dword:00000001
+
+[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"TaskbarSi"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile]
+"NetworkThrottlingIndex"=dword:0000000A
+"SystemResponsiveness"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters]
+"KeyboardDataQueueSize"=dword:0000001E
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mouclass\Parameters]
+"MouseDataQueueSize"=dword:0000001E
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games]
+"GPU Priority"=dword:00000008
+"Priority"=dword:00000006
+"Scheduling Category"="High"
+"SFIO Priority"="High"
+
+
+;; # Fixed = consistent
+;; # Variable = higher fps but inconsistent (Try this if your cpu gets hot)
+
+;; # Short = better input latency but higher cpu usage
+;; # Long = lower cpu usage but worse input latency
+
+;; # FG (Forground Boost) = Prioritize forground apps that have focus such as games. good for games bad for streaming/recording
+
+;; # Short-Fixed values: 28, 2A (FG)
+;; # Short-Variable values: 24, 26 (FG)
+;; # Long-Variable values: 14, 16 (FG)
+;; # Suggestion: 2A (Smooth) or 28 (Better input latency)
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\PriorityControl]
+"Win32PrioritySeparation"=dword:00000028
+
+
+

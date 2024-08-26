@@ -1,0 +1,283 @@
+[Settings]
+PowerUser				= 0
+
+[OSD]                                                	
+EnableOSD				= 1
+EnableBgnd				= 1
+EnableFill				= 0
+EnableStat				= 0
+BaseColor				= 00FF8000
+BgndColor				= 00000000
+FillColor				= 80000000
+FillMargin				= 2
+PositionX				= 1
+PositionY				= 1
+ZoomRatio				= 2
+CoordinateSpace				= 0
+FrameColorBarMode			= 0
+FrameColorBarSpeed			= 4
+FrameColorBarPos			= 8
+FrameColorBarWidth			= 32
+FrameColorsNum				= 16
+FrameColor0				= 00FFFFFF
+FrameColor1				= 0000FF00
+FrameColor2				= 000000FF
+FrameColor3				= 00FF0000
+FrameColor4				= 00009999
+FrameColor5				= 00000080
+FrameColor6				= 00009900
+FrameColor7				= 0000FFFF
+FrameColor8				= 00800000
+FrameColor9				= 00DCDCDC
+FrameColor10				= 00800080
+FrameColor11				= 00808000
+FrameColor12				= 00A0A0A0
+FrameColor13				= 00FF00FF
+FrameColor14				= 00FFFF00
+FrameColor15				= 00FFD000
+EnableFrameColorBar			= 0
+RefreshPeriod				= 500
+RefreshPeriodMin			= 10
+IntegerFramerate			= 1
+MaximumFrametime			= 0
+EnableFrametimeHistory			= 0
+FrametimeHistoryWidth			= -32
+FrametimeHistoryHeight			= -4
+FrametimeHistoryMargin			= 1
+FrametimeHistoryMin			= 0
+FrametimeHistoryMax			= 50
+FrametimeHistoryStyle			= 0
+PerformanceProfiler			= 0
+SyncInfo				= 0
+ShowForegroundStat			= 0
+SplitBatches				= 1
+SharedMemoryAccessTimeout		= 500
+Enable3DAPI				= 0
+ScaleToFit				= 0
+
+[Statistics]
+FramerateAveragingInterval		= 1000
+PeakFramerateCalc			= 0
+PercentileCalc				= 0
+FrametimeCalc				= 0
+PercentileBuffer			= 0
+
+[Framerate]
+Limit					= 0
+LimitDenominator			= 1
+LimitTime				= 0
+LimitTimeDenominator			= 1
+IdleLimitTime				= 0
+ThrottleTime				= 0
+LimitHotkeys				= 1
+SyncDisplay           			= 0
+SyncFlush				= 1
+SyncCalibrationDelta			= 20
+SyncCalibrationCounter			= 60
+SyncPollPeriod				= 5
+SyncScanline0				= 0
+SyncScanline1				= 0
+SyncTimeout				= 1
+SyncHotkeys				= 0
+SyncPeriods				= 0
+SyncLimiter				= 0
+SyncTotal				= 0
+Yield					= 2
+PassiveWait				= 1
+PassiveWaitThreshold			= 70
+PassiveWaitLimit			= 2000
+PassiveWaitInterleave			= 0
+ActiveWaitLimit				= 2000
+HighResolutionTimer			= 1
+HybridSyncPeriod			= 60000
+PreemptiveWaitThreshold			= 0
+ReflexFallback				= 0
+ReflexLowLatency			= 1
+ReflexLowLatencyBoost			= 0
+ReflexSetSleepModePerFrame		= 1
+ReflexSleep				= 0
+ReflexGetLatency			= 1
+ReflexSetLatencyMarker			= 1
+
+[Hooking]
+EnableHooking				= 1
+EnableSynchronization			= 1
+EnableFloatingInjectionAddress		= 0
+EnableDynamicOffsetDetection		= 0
+EnableProxyProtection			= 1
+CBTFlags				= 1
+CBTInjectionPeriod			= 1000
+HookLoadLibrary				= 0
+HookDirectDraw				= 0
+HookDirect3D8				= 1
+HookDirect3D8Release			= 0
+HookDirect3D8ReleaseVT			= 0
+HookDirect3D9				= 1
+HookDirect3D9Release			= 0
+HookDirect3D9ReleaseVT			= 0
+HookDirect3DSwapChain9Present		= 1
+HookDXGI				= 1
+HookDXGISwapChainPresentVT		= 0
+HookDXGISwapChainRelease		= 1
+HookDXGISwapChainReleaseDirect3D12	= 0
+HookDXGISwapChainResizeBuffersVT	= 0
+HookDXGISwapChain1Present1		= 1
+HookDirect3D12				= 1
+HookDirect3D12Agility			= 1
+HookDirect3D12DebugLayer		= 0
+UnhookD3D12CommandQueue			= 1
+LateD3D12InjectionRetryCount		= 10
+HookOpenGL				= 1
+HookVulkan				= 1
+HookUWP					= 1
+UWPInjectionEventMask			= 3
+UWPInjectionPeriod			= 100
+UWPInjectionTimeout			= 30000
+InjectionDelay				= 15000
+InjectionDelayTriggers			= IGO64.dll,GameOverlayRenderer64.dll,overlay64.dll,DiscordOverlay64.dll,EOSOVH-Win64-Shipping.dll,EOSSDK-Win64-Shipping.dll,GCLay64.dll
+InjectionDelayBeep			= 0
+InjectionDelayDirect3D12		= 0
+TrampolineType				= 2
+IgnoreDXGIInterop			= 1
+ConnectRetryCount			= 100
+ForceHooking				= 0
+InjectionIgnoreTriggers			= PresentationFramework.dll,PresentationFramework.NI.dll,Microsoft.WinUI.dll
+RenderingDelay				= 0
+UnconditionalInjectionDelay		= 0
+EnableReinjection			= 1
+EnableRelocation			= 0
+UseDetours				= 0
+SafeDetoursChain			= 1
+EOSOVHCompatibilityFlags		= 0
+D3D1xDevicePriority			= 0
+GCLayCompatibilityFlags			= 1
+InjectionDelayNotification		= 1
+
+[Font]
+TextureSize				= 2048
+Height					= -9
+Weight					= 400
+Italic					= 0
+Face					= Unispace
+Load					=
+OutlineCompensation			= 1
+OutlinePassCount			= 1
+OutlineFactor                           = 240
+OutlineMask				= 0000000F
+TabUnit					= 65
+CharsetSize0				= 200
+CharsetSize1				= 100
+CharsetSize2				= 50
+CharsetSize3				= 0
+
+[OverrideDXGI]
+ForceFlipModel				= 0
+ForceAllowTearing			= 0
+
+[RendererDirectDraw]
+FlickerFree				= 1
+
+[RendererDirect3D8]
+Implementation				= 2
+VB					= 1
+OverrideRenderTarget			= 1
+Offscreen				= 0
+
+[RendererDirect3D9]
+Implementation				= 2
+VB					= 1
+OverrideRenderTarget			= 1
+Offscreen				= 0
+AdditionalSwapChain			= 0
+
+[RendererDirect3D10]
+Enable					= 1
+Implementation				= 2
+FastClear				= 1
+FastClearATI				= 0
+FastClearNVIDIA				= 1
+Offscreen				= 0
+
+[RendererDirect3D11]
+Enable					= 1
+Implementation				= 2
+FastClear				= 1
+FastClearATI				= 0
+FastClearNVIDIA				= 1
+RestrictMultipleSwapChains		= 0
+Offscreen				= 0
+HDR					= 0
+
+[RendererDirect3D12]
+D3D11on12				= 1
+Enable					= 1
+Implementation				= 2
+QueueDetection				= 0
+QueueCache				= 1
+RestrictMultithreading			= 0
+RestrictMultipleSwapChains		= 0
+RestrictAFR				= 0
+Offscreen				= 0
+
+[RendererOpenGL]
+Enable					= 1
+Implementation				= 2
+Context					= 0
+ContextFallback				= 1
+ContextValidation			= 1
+Offscreen				= 0
+
+[RendererVulkan]
+Enable					= 1
+Implementation				= 2
+Clear					= 1
+ClearATI				= 0
+ClearNVIDIA				= 1
+PresentFromCompute			= 1
+Offscreen				= 0
+DXVKCompatibilityFlags			= 7
+
+[ScreenCaptureDirectDraw7]
+Queue					= 1
+
+[ScreenCaptureDirect3D8]
+Queue					= 1
+HwResize				= 1
+FlushPipeline				= 3C370001
+
+[ScreenCaptureDirect3D9]
+NVIFR					= 1
+GRTD					= 1
+GRTDDelay				= 2
+Queue					= 1
+HwResize				= 1
+FlushPipeline				= 3C370001
+
+[ScreenCaptureDirect3D10]
+NVIFR					= 0
+Queue					= 1
+HwResize				= 1
+FlushPipeline				= 3C370001
+
+[ScreenCaptureDirect3D11]
+NVIFR					= 0
+Queue					= 1
+HwResize				= 1
+FlushPipeline				= 3C370001
+
+[ScreenCaptureDirect3D12]
+D3D11on12				= 0
+Queue					= 1
+HwResize				= 1
+FlushPipeline				= 3C370001
+
+[ScreenCaptureOpenGL]
+PBO					= 1
+PBOATI					= 0
+PBONVIDIA				= 1
+Queue					= 1
+HwResize				= 1
+FlushPipeline				= 00000000
+
+[ScreenCaptureVulkan]
+Queue					= 1
