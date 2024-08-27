@@ -25,6 +25,8 @@ if '%errorlevel%' NEQ '0' (
 
 reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /ve /t REG_SZ /d "" /f
 
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v GlobalTimerResolutionRequests /t REG_DWORD /d 0x1 /f
+
 reg add "HKLM\SYSTEM\Setup\LabConfig" /v BypassTPMCheck /t REG_DWORD /d 0x1 /f
 reg add "HKLM\SYSTEM\Setup\LabConfig" /v BypassSecureBootCheck /t REG_DWORD /d 0x1 /f
 
@@ -33,7 +35,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Ta
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v NetworkThrottlingIndex /t REG_DWORD /d 0xA /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v SystemResponsiveness /t REG_DWORD /d 0x0 /f
 
-reg add "HKLM\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters" /v KeyboardDataQueueSize /t REG_DWORD /d 0xA /f
+reg add "HKLM\SYSTEM\CurrentControlSet\Services\kbdclass\Parameters" /v KeyboardDataQueueSize /t REG_DWORD /d 0xC /f
 reg add "HKLM\SYSTEM\CurrentControlSet\Services\mouclass\Parameters" /v MouseDataQueueSize /t REG_DWORD /d 0x10 /f
 
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" /v "GPU Priority" /t REG_DWORD /d 0x8 /f
@@ -61,11 +63,51 @@ reg add "HKCU\Control Panel\Mouse" /v MouseHoverTime /t REG_SZ /d "10" /f
 
 reg add "HKCU\Control Panel\Desktop" /v MenuShowDelay /t REG_SZ /d "0" /f
 
-echo All registry modifications have been applied.
 echo.
-echo For some changes to take effect explorer will need to be restarted
-echo Press any key to restart explorer . . .
-pause >nul
-taskkill /im explorer.exe /f
+
+tasklist /fi "ImageName eq SetTimerResolution.exe" /fo csv 2>NUL | find /I "SetTimerResolution.exe">NUL
+if "%ERRORLEVEL%"=="0" (
+    echo SetTimerResolution.exe is already active
+    rem echo if you wish to disable and remove it, use Restore.bat
+
+    goto exit
+)
+echo Do you want to set timer resolution to 0.512 and apply at startup?
+set /p choice=Please select an option (Y/n): 
+
+if "%choice%"=="y" goto timerResolution
+if "%choice%"=="Y" goto timerResolution
+if "%choice%"=="n" goto exit
+if "%choice%"=="N" goto exit
+goto timerResolution
+
+:exit
+echo.
+echo Restarting Explorer...
+taskkill /im explorer.exe /f 1>nul 2>nul
 start explorer.exe
+echo Successfully applied all tweaks!
+echo.
+echo REBOOT REQUIRED
+echo Press any key to close...
+pause >nul
 exit
+
+:timerResolution
+set SCRIPT="%TEMP%\%RANDOM%-%RANDOM%-%RANDOM%-%RANDOM%.vbs"
+
+copy /Y .\SetTimerResolution.exe "C:\Windows\SetTimerResolution.exe" 1>nul 2>nul
+
+echo Set oWS = WScript.CreateObject("WScript.Shell") >> %SCRIPT%
+echo sLinkFile = "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\SetTimerResolution.exe.lnk" >> %SCRIPT%
+echo Set oLink = oWS.CreateShortcut(sLinkFile) >> %SCRIPT%
+echo oLink.TargetPath = "C:\Windows\SetTimerResolution.exe" >> %SCRIPT%
+echo oLink.Arguments = "--resolution 5120 --no-console" >> %SCRIPT%
+echo oLink.WorkingDirectory = "C:\" >> %SCRIPT%
+echo oLink.Save >> %SCRIPT%
+
+cscript /nologo %SCRIPT%
+del %SCRIPT%
+start "" "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\SetTimerResolution.exe.lnk"
+
+goto exit
