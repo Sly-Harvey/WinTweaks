@@ -179,12 +179,6 @@
         <ValueType>Dword</ValueType>
       </ProfileSetting>
       <ProfileSetting>
-        <SettingNameInfo>Frame Rate Limiter</SettingNameInfo>
-        <SettingID>277041154</SettingID>
-        <SettingValue>124</SettingValue>
-        <ValueType>Dword</ValueType>
-      </ProfileSetting>
-      <ProfileSetting>
         <SettingNameInfo>Background Application Max Frame Rate</SettingNameInfo>
         <SettingID>277041157</SettingID>
         <SettingValue>30</SettingValue>
