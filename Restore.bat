@@ -23,6 +23,14 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 
+:: Restore nvidiaProfileInspector settings
+where nvidiaProfileInspector 1>nul 2>nul
+if %ERRORLEVEL% EQU 0 (
+    nvidiaProfileInspector.exe -silentImport "%~dp0nvidiaProfileInspector\Default.nip"
+    choco uninstall nvidia-profile-inspector -y
+    echo.
+)
+
 reg delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f 2>nul
 
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v GlobalTimerResolutionRequests /t REG_DWORD /d 0x0 /f
@@ -62,10 +70,10 @@ del /Q "C:\Windows\SetTimerResolution.exe" 1>nul 2>nul
 
 echo Restarting Explorer...
 taskkill /im explorer.exe /f 1>nul 2>nul
-start explorer.exe
-echo Successfully restored all tweaks!
+start /B explorer.exe
 echo.
-echo REBOOT REQUIRED
+echo Successfully restored all tweaks!
+call Tools\colortext 0C "REBOOT REQUIRED" 1
 echo Press any key to close...
 pause >nul
 exit
