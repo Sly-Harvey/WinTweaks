@@ -35,7 +35,7 @@ if %ERRORLEVEL% NEQ 0 (
     )
     choco install nvidia-profile-inspector -y
 ) else echo nvidiaProfileInspector is already installed!
-nvidiaProfileInspector.exe -silentImport "%~dp0nvidiaProfileInspector\Performance-Quality.nip"
+nvidiaProfileInspector.exe -silentImport "%~dp0nvidiaProfileInspector\Performance.nip"
 echo.
 
 :: Boosted memory performance and improved microstuttering
@@ -92,7 +92,6 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Services\mouclass\Parameters" /v MouseDat
 :: system and network tweaks
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v SystemResponsiveness /t REG_DWORD /d 0x0 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile" /v NetworkThrottlingIndex /t REG_DWORD /d 0xA /f
-
 
 :: HAGS (Hardware accelerated gpu scheduling) 2 = on, 1 = off
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\GraphicsDrivers" /v "HwSchMode" /t REG_DWORD /d 0x1 /f
