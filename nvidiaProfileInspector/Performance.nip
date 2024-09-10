@@ -31,19 +31,13 @@
       <ProfileSetting>
         <SettingNameInfo>Vertical Sync Tear Control</SettingNameInfo>
         <SettingID>5912412</SettingID>
-        <SettingValue>2576618116</SettingValue>
+        <SettingValue>2525368439</SettingValue>
         <ValueType>Dword</ValueType>
       </ProfileSetting>
       <ProfileSetting>
         <SettingNameInfo>Preferred refresh rate</SettingNameInfo>
         <SettingID>6600001</SettingID>
         <SettingValue>1</SettingValue>
-        <ValueType>Dword</ValueType>
-      </ProfileSetting>
-      <ProfileSetting>
-        <SettingNameInfo>NVIDIA Predefined Ambient Occlusion Usage</SettingNameInfo>
-        <SettingID>6701881</SettingID>
-        <SettingValue>0</SettingValue>
         <ValueType>Dword</ValueType>
       </ProfileSetting>
       <ProfileSetting>
@@ -223,7 +217,7 @@
       <ProfileSetting>
         <SettingNameInfo>Frame Rate Limiter</SettingNameInfo>
         <SettingID>277041154</SettingID>
-        <SettingValue>0</SettingValue>
+        <SettingValue>57</SettingValue>
         <ValueType>Dword</ValueType>
       </ProfileSetting>
       <ProfileSetting>
@@ -305,7 +299,7 @@
         <ValueType>Dword</ValueType>
       </ProfileSetting>
       <ProfileSetting>
-        <SettingNameInfo>Memory Allocation Policy</SettingNameInfo>
+        <SettingNameInfo />
         <SettingID>286335539</SettingID>
         <SettingValue>1</SettingValue>
         <ValueType>Dword</ValueType>
