@@ -38,21 +38,22 @@ if %ERRORLEVEL% NEQ 0 (
 nvidiaProfileInspector.exe -silentImport "%~dp0nvidiaProfileInspector\Performance.nip"
 echo.
 
-:: Boosted memory performance and improved microstuttering
-bcdedit /set firstmegabytepolicy UseAll
-bcdedit /set avoidlowmemory 0x8000000
-bcdedit /set nolowmem Yes
-
 :: Disabled DMA memory protection and cores isolation
 bcdedit /set vsmlaunchtype Off
-bcdedit /set vm No
+::bcdedit /set vm No
 
 :: Enabled X2Apic and enable Memory Mapping for PCI-E devices
 bcdedit /set x2apicpolicy Enable
 bcdedit /set configaccesspolicy Default
-bcdedit /set MSI Default
-bcdedit /set usephysicaldestination No
-bcdedit /set usefirmwarepcisettings No
+::bcdedit /set MSI Default
+
+:: Use TSC in favour of HPET and disable dynamic tick rates, this results in lower latency
+:: In the event of higher cpu usage or laptop then delete disabledynamictick
+:: In the event of higher latency then delete tscsyncpolicy
+bcdedit /set useplatformclock no
+bcdedit /set useplatformtick no
+bcdedit /set disabledynamictick yes
+bcdedit /set tscsyncpolicy Enhanced
 
 :: Appearance
 reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /ve /t REG_SZ /d "" /f
