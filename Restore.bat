@@ -31,18 +31,22 @@ if %ERRORLEVEL% EQU 0 (
     echo.
 )
 
-bcdedit /deletevalue firstmegabytepolicy
-bcdedit /deletevalue avoidlowmemory
-bcdedit /deletevalue nolowmem
+:: REMOVE THESE AFTER USING THIS SCRIPT
+bcdedit /deletevalue firstmegabytepolicy 2>nul
+bcdedit /deletevalue avoidlowmemory 2>nul
+bcdedit /deletevalue nolowmem 2>nul
 
-bcdedit /deletevalue vsmlaunchtype
-bcdedit /deletevalue vm
+bcdedit /deletevalue vsmlaunchtype 2>nul
+bcdedit /deletevalue vm 2>nul
 
-bcdedit /deletevalue x2apicpolicy
-bcdedit /deletevalue configaccesspolicy
-bcdedit /deletevalue MSI
-bcdedit /deletevalue usephysicaldestination
-bcdedit /deletevalue usefirmwarepcisettings
+bcdedit /deletevalue x2apicpolicy 2>nul
+bcdedit /deletevalue configaccesspolicy 2>nul
+bcdedit /deletevalue MSI 2>nul
+bcdedit /deletevalue usephysicaldestination 2>nul
+bcdedit /deletevalue usefirmwarepcisettings 2>nul
+
+bcdedit /deletevalue disabledynamictick 2>nul
+::bcdedit /set disabledynamictick no
 
 reg delete "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}" /f 2>nul
 reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarSi /f 2>nul
