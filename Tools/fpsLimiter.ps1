@@ -22,10 +22,14 @@ if ($Add) {
     }
 
     # Check if the Frame Rate Limiter already exists
-    $existingSetting = $settingsNode.ProfileSetting | Where-Object { $_.SettingID -eq "277041154" }
+    $frameCapSetting = $settingsNode.ProfileSetting | Where-Object { $_.SettingID -eq "277041154" }
 
-    if ($existingSetting) {
-        Write-Host "Frame Rate Limiter setting already exists. No changes made."
+    if ($frameCapSetting) {
+        Write-Host "Frame Rate Limiter setting already exists. Changing value..."
+
+        $frameCapSetting.SettingValue = $FPS.ToString()
+        $xml.Save($filePath)
+        Write-Host "Frame Rate Limiter set to $FPS successfully."
     } else {
         # Create a new ProfileSetting node for "Frame Rate Limiter"
         $profileSetting = $xml.CreateElement("ProfileSetting")
@@ -56,7 +60,7 @@ if ($Add) {
         # Save the updated XML back to the file
         $xml.Save($filePath)
 
-        Write-Host "Frame Rate Limiter set to $FPS and added successfully."
+        Write-Host "Frame Rate Limiter added and set to $FPS successfully."
     }
 }
 
