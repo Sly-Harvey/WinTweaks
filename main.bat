@@ -42,17 +42,17 @@ set /a GSYNC_CAP=REFRESH_RATE-3
 ::1620202130 = app controlled vsync
 ::1199655232 = force on
 ::277041154 = FPS limiter ID
-set /p choice=Do you have a gsync monitor? (y/N): 
-if "%choice%"=="y" (
+set /p choiceGsync=Do you have a gsync monitor? (y/N): 
+if "%choiceGsync%"=="y" (
     powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1620202130', '1199655232' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
     powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
-) else if "%choice%"=="Y" (
+) else if "%choiceGsync%"=="Y" (
     powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1620202130', '1199655232' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
     powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
-) else if "%choice%"=="n" (
+) else if "%choiceGsync%"=="n" (
     powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1199655232', '1620202130' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
     powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
-) else if "%choice%"=="N" (
+) else if "%choiceGsync%"=="N" (
     powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1199655232', '1620202130' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
     powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
 )
@@ -439,12 +439,12 @@ if "%ERRORLEVEL%"=="0" (
     goto exit
 )
 echo Do you want to set timer resolution to 0.512 and apply at startup? (Not recommended)
-set /p choice=Please select an option (y/N): 
+set /p choiceTimerRes=Please select an option (y/N): 
 
-if "%choice%"=="y" goto timerResolution
-if "%choice%"=="Y" goto timerResolution
-if "%choice%"=="n" goto exit
-if "%choice%"=="N" goto exit
+if "%choiceTimerRes%"=="y" goto timerResolution
+if "%choiceTimerRes%"=="Y" goto timerResolution
+if "%choiceTimerRes%"=="n" goto exit
+if "%choiceTimerRes%"=="N" goto exit
 goto exit
 
 :timerResolution
