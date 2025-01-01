@@ -1,4 +1,7 @@
 @echo off
+Setlocal EnableDelayedExpansion
+
+
 
 :: Elevate to admin to apply reg tweaks
 :-------------------------------------
@@ -21,8 +24,39 @@ if '%errorlevel%' NEQ '0' (
     if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
     pushd "%CD%"
     CD /D "%~dp0"
+    powershell set-executionpolicy remotesigned
 :--------------------------------------
 ::color B
+
+for /F "tokens=*" %%F IN ('powershell "Get-CimInstance -Namespace root\cimv2 -ClassName Win32_VideoController | Select-Object -ExpandProperty CurrentRefreshRate"') DO (
+set REFRESH_RATE=%%F
+set /a GSYNC_CAP=REFRESH_RATE-3
+)
+
+:: For testing
+::powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
+::powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
+::set /p tmp=Press enter to exit...
+::exit
+
+::1620202130 = app controlled vsync
+::1199655232 = force on
+::277041154 = FPS limiter ID
+set /p choice=Do you have a gsync monitor? (y/N): 
+if "%choice%"=="y" (
+    powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1620202130', '1199655232' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
+) else if "%choice%"=="Y" (
+    powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1620202130', '1199655232' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
+) else if "%choice%"=="n" (
+    powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1199655232', '1620202130' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
+) else if "%choice%"=="N" (
+    powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1199655232', '1620202130' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
+)
+echo.
 
 :: Enable nvidiaProfileInspector settings
 where nvidiaProfileInspector 1>nul 2>nul
