@@ -33,28 +33,21 @@ set REFRESH_RATE=%%F
 set /a GSYNC_CAP=REFRESH_RATE-3
 )
 
-:: For testing
-::powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
-::powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
-::set /p tmp=Press enter to exit...
-::exit
-
-::1620202130 = app controlled vsync
-::1199655232 = force on
-::277041154 = FPS limiter ID
+:: reference: https://documentation.help/nvWmi-win10/profileSettings.html
+:: 1620202130 = app controlled vsync
+:: 1199655232 = force on vsync
+:: 138504007 = force off vsync
 set /p choiceGsync=Do you have a gsync monitor? (y/N): 
+echo.
 if "%choiceGsync%"=="y" (
-    powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1620202130', '1199655232' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
-    powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1199655232 -filePath "nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\fpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
 ) else if "%choiceGsync%"=="Y" (
-    powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1620202130', '1199655232' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
-    powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
-) else if "%choiceGsync%"=="n" (
-    powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1199655232', '1620202130' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
-    powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
-) else if "%choiceGsync%"=="N" (
-    powershell -Command "(Get-Content nvidiaProfileInspector\Performance.nip) -replace '1199655232', '1620202130' | Out-File -encoding ASCII nvidiaProfileInspector\Performance.nip"
-    powershell -ExecutionPolicy Bypass -File "Tools\addFpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1199655232 -filePath "nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\fpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
+) else (
+    powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1620202130 -filePath "nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\fpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
 )
 echo.
 
@@ -431,20 +424,20 @@ for %%i in (NvTmMon NvTmRep NvProfile) do for /f "tokens=1 delims=," %%a in ('sc
 :: Block telemetry domains
 type .\Tools\hosts > %windir%\System32\drivers\etc\hosts
 
-tasklist /fi "ImageName eq SetTimerResolution.exe" /fo csv 2>NUL | find /I "SetTimerResolution.exe">NUL
-echo.
-if "%ERRORLEVEL%"=="0" (
-    echo SetTimerResolution.exe is already active
-    rem echo if you wish to disable and remove it, use Restore.bat
-    goto exit
-)
-echo Do you want to set timer resolution to 0.512 and apply at startup? (Not recommended)
-set /p choiceTimerRes=Please select an option (y/N): 
-
-if "%choiceTimerRes%"=="y" goto timerResolution
-if "%choiceTimerRes%"=="Y" goto timerResolution
-if "%choiceTimerRes%"=="n" goto exit
-if "%choiceTimerRes%"=="N" goto exit
+::tasklist /fi "ImageName eq SetTimerResolution.exe" /fo csv 2>NUL | find /I "SetTimerResolution.exe">NUL
+::echo.
+::if "%ERRORLEVEL%"=="0" (
+::    echo SetTimerResolution.exe is already active
+::    rem echo if you wish to disable and remove it, use Restore.bat
+::    goto exit
+::)
+::echo Do you want to set timer resolution to 0.512 and apply at startup? (Not recommended)
+::set /p choiceTimerRes=Please select an option (y/N): 
+::
+::if "%choiceTimerRes%"=="y" goto timerResolution
+::if "%choiceTimerRes%"=="Y" goto timerResolution
+::if "%choiceTimerRes%"=="n" goto exit
+::if "%choiceTimerRes%"=="N" goto exit
 goto exit
 
 :timerResolution
