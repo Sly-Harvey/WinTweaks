@@ -37,7 +37,7 @@ set /a GSYNC_CAP=REFRESH_RATE-3
 :: 1620202130 = app controlled vsync
 :: 1199655232 = force on vsync
 :: 138504007 = force off vsync
-set /p choiceGsync=Do you have a gsync monitor? (y/N): 
+set /p choiceGsync=Set up gsync + vsync + fps cap -3 below refresh rate? (y/N): 
 echo.
 if "%choiceGsync%"=="y" (
     powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1199655232 -filePath "nvidiaProfileInspector\Performance.nip"
