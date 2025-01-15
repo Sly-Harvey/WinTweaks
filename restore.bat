@@ -23,13 +23,13 @@ if '%errorlevel%' NEQ '0' (
     CD /D "%~dp0"
 :--------------------------------------
 
-:: Restore nvidiaProfileInspector settings
-where nvidiaProfileInspector 1>nul 2>nul
-if %ERRORLEVEL% EQU 0 (
-    nvidiaProfileInspector.exe -silentImport "%~dp0nvidiaProfileInspector\Default.nip"
-    choco uninstall nvidia-profile-inspector -y
-    echo.
-)
+::where nvidiaProfileInspector 1>nul 2>nul
+::if %ERRORLEVEL% EQU 0 (
+::    nvidiaProfileInspector.exe -silentImport "%~dp0Programs\nvidiaProfileInspector\Default.nip"
+::    choco uninstall nvidia-profile-inspector -y
+::    echo.
+::)
+Programs\nvidiaProfileInspector\nvidiaProfileInspector.exe -silentImport "%~dp0Programs\nvidiaProfileInspector\Default.nip"
 
 call :bcdedit /deletevalue firstmegabytepolicy
 call :bcdedit /deletevalue avoidlowmemory

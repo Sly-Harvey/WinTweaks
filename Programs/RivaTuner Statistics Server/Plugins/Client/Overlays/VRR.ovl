@@ -1,0 +1,88 @@
+[Master]
+Implementation=2
+FontFace=Fixedsys
+FontHeight=-13
+FontWeight=700
+ZoomRatio=1
+[Settings]
+Name=
+EnvVars=
+RefreshPeriod=1000
+EmbeddedImage=
+PingAddr=
+[General]
+Sources=1
+Tables=0
+Layers=7
+[Source0]
+Name=Display1 refresh rate
+Units=Hz
+Format=
+Formula=
+Provider=HAL
+ID=Display1 refresh rate
+[Layer0]
+Name=Background
+Text=
+PositionX=0
+PositionY=0
+ExtentX=-14
+ExtentY=-6
+ExtentOrigin=0
+BgndColor=80000000
+[Layer1]
+Name=Refresh rate
+Text=%Display1 refresh rate%
+PositionX=0
+PositionY=0
+ExtentX=-7
+ExtentY=-2
+ExtentOrigin=5
+Size=200
+TextColor=FF8080
+[Layer2]
+Name=Refresh rate units
+Text=" Hz"
+PositionX=-7
+PositionY=0
+ExtentX=-7
+ExtentY=-2
+ExtentOrigin=3
+TextColor=FF8080
+[Layer3]
+Name=Framerate
+Text=<FR>
+PositionX=0
+PositionY=-2
+ExtentX=-7
+ExtentY=-2
+ExtentOrigin=5
+Size=200
+TextColor=FF8080
+[Layer4]
+Name=Framerate units
+Text=" FPS"
+PositionX=-7
+PositionY=-2
+ExtentX=-7
+ExtentY=-2
+ExtentOrigin=3
+TextColor=FF8080
+[Layer5]
+Name=Frametime graph
+Text=<G=Frametime,0,0,1,0,100,0>
+PositionX=0
+PositionY=-4
+ExtentX=-14
+ExtentY=-2
+ExtentOrigin=5
+Size=200
+TextColor=FF8080
+[Layer6]
+Name=Cursor position placeholder
+Text=" \b"
+PositionX=0
+PositionY=-6
+ExtentX=0
+ExtentY=0
+ExtentOrigin=0
