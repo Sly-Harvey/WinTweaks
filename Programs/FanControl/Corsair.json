@@ -1,0 +1,433 @@
+{
+  "__VERSION__": "209",
+  "Main": {
+    "Controls": [
+      {
+        "Calibration": [
+          [
+            20,
+            0
+          ],
+          [
+            30,
+            916
+          ],
+          [
+            40,
+            1183
+          ],
+          [
+            50,
+            1421
+          ],
+          [
+            60,
+            1641
+          ],
+          [
+            70,
+            1834
+          ],
+          [
+            80,
+            2018
+          ],
+          [
+            90,
+            2196
+          ],
+          [
+            100,
+            2368
+          ]
+        ],
+        "Enable": true,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6793d/control/1",
+        "IsHidden": false,
+        "ManualControl": true,
+        "ManualControlValue": 41,
+        "MinimumPercent": 0,
+        "Name": "Fan #2",
+        "NickName": "AIO Pump",
+        "PairedFanSensor": {
+          "Identifier": "/lpc/nct6793d/fan/1",
+          "IsHidden": false,
+          "Name": "Fan #2",
+          "NickName": "AIO Pump"
+        },
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 38,
+        "SelectedStop": 26
+      },
+      {
+        "Calibration": [
+          [
+            0,
+            1051
+          ],
+          [
+            10,
+            1052
+          ],
+          [
+            20,
+            1062
+          ],
+          [
+            90,
+            1074
+          ],
+          [
+            100,
+            1093
+          ]
+        ],
+        "Enable": true,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6793d/control/0",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 60,
+        "MinimumPercent": 0,
+        "Name": "Fan #1",
+        "NickName": "Intake Case Fan",
+        "PairedFanSensor": {
+          "Identifier": "/lpc/nct6793d/fan/0",
+          "IsHidden": false,
+          "Name": "Fan #1",
+          "NickName": "Fan #1"
+        },
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": {
+          "CommandMode": 0,
+          "IgnoreHysteresisAtLimits": true,
+          "IsHidden": false,
+          "MaximumCommand": 100,
+          "MaximumTemperature": 100.0,
+          "MinimumTemperature": 20.0,
+          "Name": "Intake Case Fan",
+          "OneWayHysteresis": false,
+          "Points": [
+            "50,50",
+            "65,57",
+            "83,65",
+            "92,70"
+          ],
+          "SelectedHysteresis": 2.0,
+          "SelectedResponseTime": 1,
+          "SelectedTempSource": {
+            "Identifier": "NVApiWrapper/0-GP104-A/sensor/0",
+            "IsHidden": false,
+            "Name": "GPU",
+            "NickName": "GPU"
+          }
+        },
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Calibration": [
+          [
+            20,
+            0
+          ],
+          [
+            30,
+            532
+          ],
+          [
+            40,
+            716
+          ],
+          [
+            50,
+            862
+          ],
+          [
+            60,
+            1005
+          ],
+          [
+            70,
+            1120
+          ],
+          [
+            80,
+            1236
+          ],
+          [
+            90,
+            1341
+          ],
+          [
+            100,
+            1441
+          ]
+        ],
+        "Enable": true,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6793d/control/2",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 60,
+        "MinimumPercent": 0,
+        "Name": "Fan #3",
+        "NickName": "Exhaust Radiator Fan",
+        "PairedFanSensor": {
+          "Identifier": "/lpc/nct6793d/fan/2",
+          "IsHidden": false,
+          "Name": "Fan #3",
+          "NickName": "Intake Radiator Fan"
+        },
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": {
+          "CommandMode": 0,
+          "IgnoreHysteresisAtLimits": true,
+          "IsHidden": false,
+          "MaximumCommand": 100,
+          "MaximumTemperature": 100.0,
+          "MinimumTemperature": 20.0,
+          "Name": "Exhaust Radiator",
+          "OneWayHysteresis": false,
+          "Points": [
+            "50,55",
+            "60,65",
+            "80,70",
+            "100,100"
+          ],
+          "SelectedHysteresis": 2.0,
+          "SelectedResponseTime": 1,
+          "SelectedTempSource": {
+            "Identifier": "/intelcpu/0/temperature/6",
+            "IsHidden": false,
+            "Name": "CPU Package",
+            "NickName": "CPU Package"
+          }
+        },
+        "SelectedOffset": 0,
+        "SelectedStart": 35,
+        "SelectedStop": 26
+      },
+      {
+        "Calibration": [],
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6793d/control/3",
+        "IsHidden": true,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MinimumPercent": 0,
+        "Name": "Fan #4",
+        "NickName": "Fan #4",
+        "PairedFanSensor": null,
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Calibration": [],
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6793d/control/4",
+        "IsHidden": true,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MinimumPercent": 0,
+        "Name": "Fan #5",
+        "NickName": "Fan #5",
+        "PairedFanSensor": null,
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Calibration": [],
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "/lpc/nct6793d/control/5",
+        "IsHidden": true,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MinimumPercent": 0,
+        "Name": "Fan #6",
+        "NickName": "Fan #6",
+        "PairedFanSensor": null,
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      },
+      {
+        "Calibration": [],
+        "Enable": false,
+        "ForceApply": false,
+        "Identifier": "NVApiWrapper/0-GP104-A/control/0",
+        "IsHidden": false,
+        "ManualControl": false,
+        "ManualControlValue": 50,
+        "MinimumPercent": 0,
+        "Name": "Control 1 - NVIDIA GeForce GTX 1080",
+        "NickName": "Control 1 - NVIDIA GeForce GTX 1080",
+        "PairedFanSensor": {
+          "Identifier": "NVApiWrapper/0-GP104-A/fan/0",
+          "IsHidden": false,
+          "Name": "Fan 1 - NVIDIA GeForce GTX 1080",
+          "NickName": "Intake Case Fan"
+        },
+        "SelectedCommandStepDown": 8.0,
+        "SelectedCommandStepUp": 8.0,
+        "SelectedFanCurve": null,
+        "SelectedOffset": 0,
+        "SelectedStart": 0,
+        "SelectedStop": 0
+      }
+    ],
+    "CustomSensors": [],
+    "Fahrenheit": false,
+    "FanCurves": [
+      {
+        "CommandMode": 0,
+        "IgnoreHysteresisAtLimits": true,
+        "IsHidden": false,
+        "MaximumCommand": 100,
+        "MaximumTemperature": 100.0,
+        "MinimumTemperature": 20.0,
+        "Name": "Exhaust Radiator",
+        "OneWayHysteresis": false,
+        "Points": [
+          "50,55",
+          "60,65",
+          "80,70",
+          "100,100"
+        ],
+        "SelectedHysteresis": 2.0,
+        "SelectedResponseTime": 1,
+        "SelectedTempSource": {
+          "Identifier": "/intelcpu/0/temperature/6",
+          "IsHidden": false,
+          "Name": "CPU Package",
+          "NickName": "CPU Package"
+        }
+      },
+      {
+        "CommandMode": 0,
+        "IgnoreHysteresisAtLimits": true,
+        "IsHidden": false,
+        "MaximumCommand": 100,
+        "MaximumTemperature": 100.0,
+        "MinimumTemperature": 20.0,
+        "Name": "Intake Case Fan",
+        "OneWayHysteresis": false,
+        "Points": [
+          "50,50",
+          "65,57",
+          "83,65",
+          "92,70"
+        ],
+        "SelectedHysteresis": 2.0,
+        "SelectedResponseTime": 1,
+        "SelectedTempSource": {
+          "Identifier": "NVApiWrapper/0-GP104-A/sensor/0",
+          "IsHidden": false,
+          "Name": "GPU",
+          "NickName": "GPU"
+        }
+      }
+    ],
+    "FanSensors": [
+      {
+        "Identifier": "/lpc/nct6793d/fan/0",
+        "IsHidden": false,
+        "Name": "Fan #1",
+        "NickName": "Fan #1"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/1",
+        "IsHidden": false,
+        "Name": "Fan #2",
+        "NickName": "AIO Pump"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/2",
+        "IsHidden": false,
+        "Name": "Fan #3",
+        "NickName": "Intake Radiator Fan"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/3",
+        "IsHidden": false,
+        "Name": "Fan #4",
+        "NickName": "Fan #4"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/4",
+        "IsHidden": false,
+        "Name": "Fan #5",
+        "NickName": "Fan #5"
+      },
+      {
+        "Identifier": "/lpc/nct6793d/fan/5",
+        "IsHidden": false,
+        "Name": "Fan #6",
+        "NickName": "Fan #6"
+      },
+      {
+        "Identifier": "NVApiWrapper/0-GP104-A/fan/0",
+        "IsHidden": false,
+        "Name": "Fan 1 - NVIDIA GeForce GTX 1080",
+        "NickName": "Intake Case Fan"
+      }
+    ],
+    "HideCalibration": false,
+    "HideFanSpeedCards": true,
+    "HorizontalUIOrientation": false,
+    "PrimaryColor": "#FF607D8B",
+    "SecondaryColor": "#FFC6FF00",
+    "SelectedTheme": "",
+    "ShowHiddenCards": true,
+    "SyncThemeWithWindows": true,
+    "SyncTrayIconColorWithWindows": true,
+    "TemperatureSensors": [],
+    "TrayIconColor": null,
+    "TrayIcons": []
+  },
+  "Sensors": {
+    "AdlxWrapperSettings": {
+      "Enabled": true
+    },
+    "DisabledPlugins": [],
+    "DisableStorageSensors": false,
+    "LibreHardwareMonitorSettings": {
+      "Controller": true,
+      "CPU": true,
+      "EmbeddedEC": true,
+      "GPU": true,
+      "InpOut": true,
+      "Memory": true,
+      "Motherboard": true,
+      "PSU": true,
+      "Storage": true,
+      "ZeroRPMOverride": false
+    },
+    "NvAPIWrapperSettings": {
+      "Enabled": true,
+      "ZeroRPMOverride": false
+    },
+    "SensorCount": 35
+  }
+}

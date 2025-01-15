@@ -1,0 +1,287 @@
+[Master]
+Implementation=2
+FontFace=Tahoma
+FontHeight=-19
+FontWeight=400
+ZoomRatio=1
+[Settings]
+Name=
+EnvVars=PM_RefreshPeriod=33;PM_DisplayDelay=3000;PM_ProcessId=1
+RefreshPeriod=1000
+EmbeddedImage=
+PingAddr=
+[General]
+Sources=12
+Tables=0
+Layers=18
+[Source0]
+Name=msBetweenPresents
+Units=ms
+Format=%.1f
+Formula=
+Provider=PresentMon
+ID=msBetweenPresents
+[Source1]
+Name=msGpuActive
+Units=ms
+Format=%.1f
+Formula=
+Provider=PresentMon
+ID=msGpuActive
+[Source2]
+Name=msReportingLag
+Units=ms
+Format=%.1f
+Formula=
+Provider=PresentMon
+ID=msReportingLag
+[Source3]
+Name=msInputLatency
+Units=ms
+Format=%.1f
+Formula=
+Provider=PresentMon
+ID=msInputLatency
+[Source4]
+Name=FrameratePresented
+Units=FPS
+Format=
+Formula=
+Provider=PresentMon
+ID=FrameratePresented
+[Source5]
+Name=FrameratePresentedInst
+Units=FPS
+Format=
+Formula=1000/x
+Provider=PresentMon
+ID=msBetweenPresents
+[Source6]
+Name=PresentMode
+Units=
+Format=
+Formula=
+Provider=PresentMon
+ID=PresentMode
+[Source7]
+Name=Status
+Units=
+Format=
+Formula=
+Provider=PresentMon
+ID=Status
+[Source8]
+Name=IsPresentMonDataAvailable
+Units=
+Format=
+Formula=validate(x)
+Provider=PresentMon
+ID=msBetweenPresents
+[Source9]
+Name=IsGpuLimited
+Units=
+Format=
+Formula=(msGpuActive / msBetweenPresents) >= 0.75
+Provider=HAL
+ID=Stub
+[Source10]
+Name=FrameratePresented1Dot0PLow
+Units=FPS
+Format=
+Formula=1000/percentile(msBetweenPresents,99)
+Provider=HAL
+ID=Stub
+[Source11]
+Name=FrameratePresented0Dot1PLow
+Units=FPS
+Format=
+Formula=1000/percentile(msBetweenPresents,99.9)
+Provider=HAL
+ID=Stub
+[Layer0]
+Name=Background
+Text=
+PositionX=0
+PositionY=0
+ExtentX=-64
+ExtentY=-18
+ExtentOrigin=0
+BgndColor=80000000
+[Layer1]
+Name=PresentMode
+VisibilitySource=IsPresentMonDataAvailable
+Text=<SWITCH PresentMode><CASE 0>Hw : legacy flip<CASE 1>Hw : legacy copy<CASE 2>Hw : independent flip<CASE 3>Composed : flip<CASE 4>Hw composed : independent flip<CASE 5>Composed : GPU copy<CASE 6>Composed : CPU copy
+PositionX=0
+PositionY=0
+ExtentX=-64
+ExtentY=-1
+ExtentOrigin=0
+TextColor=FFFFFF
+BgndColor=404040
+[Layer2]
+Name=PresentMon frametime graph fill
+VisibilitySource=IsPresentMonDataAvailable
+Text=<G=msBetweenPresents,0,0,1,0,50,1>
+PositionX=0
+PositionY=-1
+ExtentX=-64
+ExtentY=-17
+ExtentOrigin=0
+TextColor=80400080
+[Layer3]
+Name=PresentMon frametime graph
+VisibilitySource=IsPresentMonDataAvailable
+Text=<G=msBetweenPresents,0,0,1,0,50,0>
+PositionX=0
+PositionY=-1
+ExtentX=-64
+ExtentY=-17
+ExtentOrigin=0
+TextColor=8000FF
+[Layer4]
+Name=PresentMon GPU busy graph fill
+VisibilitySource=IsPresentMonDataAvailable
+Text=<G=msGpuActive,0,0,1,0,50,1>
+PositionX=0
+PositionY=-1
+ExtentX=-64
+ExtentY=-17
+ExtentOrigin=0
+TextColor=80004000
+[Layer5]
+Name=PresentMon GPU busy graph
+VisibilitySource=IsPresentMonDataAvailable
+Text=<G=msGpuActive,0,0,1,0,50,0>
+PositionX=0
+PositionY=-1
+ExtentX=-64
+ExtentY=-17
+ExtentOrigin=0
+TextColor=8000
+[Layer6]
+Name=PresentMon frametime caption
+VisibilitySource=IsPresentMonDataAvailable
+Text=Frametime
+PositionX=0
+PositionY=-1
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=8000FF
+[Layer7]
+Name=PresentMon frametime
+VisibilitySource=IsPresentMonDataAvailable
+Text=%msBetweenPresents% ms
+PositionX=-10
+PositionY=-1
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=8000FF
+RefreshPeriod=500
+[Layer8]
+Name=PresentMon GPU busy caption
+VisibilitySource=IsPresentMonDataAvailable
+Text=GPU busy
+PositionX=0
+PositionY=-2
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=8000
+[Layer9]
+Name=PresentMon GPU busy
+VisibilitySource=IsPresentMonDataAvailable
+Text=%msGpuActive% ms
+PositionX=-10
+PositionY=-2
+ExtentX=-10
+ExtentY=-1
+ExtentOrigin=0
+TextColor=8000
+RefreshPeriod=500
+[Layer10]
+Name=PresentMon application latency
+VisibilitySource=IsPresentMonDataAvailable
+Text=App latency %msInputLatency% ms
+PositionX=0
+PositionY=0
+ExtentX=-64
+ExtentY=-1
+ExtentOrigin=1
+TextColor=FFFFFF
+RefreshPeriod=500
+[Layer11]
+Name=PresentMon reporting lag
+VisibilitySource=IsPresentMonDataAvailable
+Text=Reporting lag %msReportingLag% ms
+PositionX=0
+PositionY=0
+ExtentX=-64
+ExtentY=-1
+ExtentOrigin=2
+TextColor=FFFFFF
+RefreshPeriod=500
+[Layer12]
+Name=Limited by
+VisibilitySource=IsPresentMonDataAvailable
+Text=Limited by <IF IsGpuLimited><C=8000>GPU<C><ELSE><C=8000FF>CPU<C>
+PositionX=0
+PositionY=-1
+ExtentX=-64
+ExtentY=-1
+ExtentOrigin=1
+TextColor=FFFFFF
+[Layer13]
+Name=PresentMon framerate
+VisibilitySource=IsPresentMonDataAvailable
+Text=%FrameratePresented% fps
+PositionX=-48
+PositionY=-1
+ExtentX=-2
+ExtentY=-2
+ExtentOrigin=0
+Alignment=-8
+Size=200
+TextColor=8000FF
+RefreshPeriod=500
+[Layer14]
+Name=PresentMon 1.0% Low framerate
+VisibilitySource=IsPresentMonDataAvailable
+Text=%FrameratePresented1Dot0PLow% fps 1.0%
+PositionX=-48
+PositionY=-3
+ExtentX=-16
+ExtentY=-2
+ExtentOrigin=2
+TextColor=8000FF
+RefreshPeriod=500
+[Layer15]
+Name=PresentMon 0.1% Low framerate
+VisibilitySource=IsPresentMonDataAvailable
+Text=%FrameratePresented0Dot1PLow% fps 0.1%
+PositionX=-48
+PositionY=-3
+ExtentX=-16
+ExtentY=-2
+ExtentOrigin=8
+TextColor=8000FF
+RefreshPeriod=500
+[Layer16]
+Name=Status
+VisibilitySource=IsPresentMonServiceAvailable
+Text=<SWITCH Status><CASE 0><IF !IsPresentMonDataAvailable>Waiting for PresentMon data stream...<IF><CASE 1>PresentMon service is not available...<CASE 2>Failed to start PresentMon data stream...<CASE 3>PresentMon data stream failed...
+PositionX=0
+PositionY=-1
+ExtentX=-64
+ExtentY=-17
+ExtentOrigin=4
+TextColor=FFFFFF
+[Layer17]
+Name=Cursor position placeholder
+Text=" \b"
+PositionX=0
+PositionY=-18
+ExtentX=0
+ExtentY=0
+ExtentOrigin=0

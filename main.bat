@@ -40,29 +40,29 @@ set /a GSYNC_CAP=REFRESH_RATE-3
 set /p choiceGsync=Set up gsync + vsync + fps cap -3 below refresh rate? (y/N): 
 echo.
 if "%choiceGsync%"=="y" (
-    powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1199655232 -filePath "nvidiaProfileInspector\Performance.nip"
-    powershell -ExecutionPolicy Bypass -File "Tools\fpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1199655232 -filePath "Programs\nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\fpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "Programs\nvidiaProfileInspector\Performance.nip"
 ) else if "%choiceGsync%"=="Y" (
-    powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1199655232 -filePath "nvidiaProfileInspector\Performance.nip"
-    powershell -ExecutionPolicy Bypass -File "Tools\fpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1199655232 -filePath "Programs\nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\fpsLimiter.ps1" -Add -FPS %GSYNC_CAP% -filePath "Programs\nvidiaProfileInspector\Performance.nip"
 ) else (
-    powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1620202130 -filePath "nvidiaProfileInspector\Performance.nip"
-    powershell -ExecutionPolicy Bypass -File "Tools\fpsLimiter.ps1" -Delete -filePath "nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\vsync.ps1" -value 1620202130 -filePath "Programs\nvidiaProfileInspector\Performance.nip"
+    powershell -ExecutionPolicy Bypass -File "Tools\fpsLimiter.ps1" -Delete -filePath "Programs\nvidiaProfileInspector\Performance.nip"
 )
 echo.
 
 :: Enable nvidiaProfileInspector settings
-where nvidiaProfileInspector 1>nul 2>nul
-if %ERRORLEVEL% NEQ 0 (
-    where choco 1>nul 2>nul
-    if %ERRORLEVEL% NEQ 0 (
-        PowerShell -NoProfile -ExecutionPolicy Bypass -File "%~dp0Tools\chocolatey.ps1"
-        call "Tools\RefreshEnv.cmd"
-        choco feature enable -n allowGlobalConfirmation
-    )
-    choco install nvidia-profile-inspector -y
-) else echo nvidiaProfileInspector is already installed!
-nvidiaProfileInspector.exe -silentImport "%~dp0nvidiaProfileInspector\Performance.nip"
+::where nvidiaProfileInspector 1>nul 2>nul
+::if %ERRORLEVEL% NEQ 0 (
+::    where choco 1>nul 2>nul
+::    if %ERRORLEVEL% NEQ 0 (
+::        PowerShell -NoProfile -ExecutionPolicy Bypass -File "%~dp0Tools\chocolatey.ps1"
+::        call "Tools\RefreshEnv.cmd"
+::        choco feature enable -n allowGlobalConfirmation
+::    )
+::    choco install nvidia-profile-inspector -y
+::) else echo nvidiaProfileInspector is already installed!
+Programs\nvidiaProfileInspector\nvidiaProfileInspector.exe -silentImport "%~dp0Programs\nvidiaProfileInspector\Performance.nip"
 echo.
 
 :: Boosted memory performance and improved microstuttering
