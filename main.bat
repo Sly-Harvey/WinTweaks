@@ -126,12 +126,12 @@ REG ADD "HKLM\SYSTEM\Setup\LabConfig" /v BypassRAMCheck /t REG_DWORD /d 0x1 /f
 :: 2 = Windows Default
 
 :: Favourites:
-:: 24/26 (Current)
-:: 14/16
-:: 2A/28
+:: 28 (Current)
+:: 26
+:: 2A
 
 :: From my research it appears that no foreground boost may be better (if your system is modern)
-REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x24 /f
+REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x28 /f
 
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v "IRQ8Priority" /t REG_DWORD /d 0x1 /f
 
