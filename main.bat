@@ -97,6 +97,16 @@ REG ADD "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v Ta
 REG ADD "HKCU\Control Panel\Mouse" /v MouseHoverTime /t REG_SZ /d "8" /f
 REG ADD "HKCU\Control Panel\Desktop" /v MenuShowDelay /t REG_SZ /d "0" /f
 
+:: Powershell functions and aliases
+mkdir "%USERPROFILE%\Documents\WindowsPowerShell" 1>nul 2>nul
+mkdir "C:\Program Files\PowerShell\7" 1>nul 2>nul
+copy /Y .\Tools\Microsoft.PowerShell_profile.ps1 "%USERPROFILE%\Documents\WindowsPowerShell" 1>nul 2>nul
+copy /Y .\Tools\Microsoft.PowerShell_profile.ps1 "C:\Program Files\PowerShell\7" 1>nul 2>nul
+
+:: Command promt aliases
+copy /Y .\Tools\aliases.bat "%USERPROFILE%" 1>nul 2>nul
+REG ADD "HKCU\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d "%USERPROFILE%\aliases.bat" /f
+
 :: Timer Resolution Fix (Important)
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel" /v GlobalTimerResolutionRequests /t REG_DWORD /d 0x1 /f
 
@@ -127,10 +137,9 @@ REG ADD "HKLM\SYSTEM\Setup\LabConfig" /v BypassRAMCheck /t REG_DWORD /d 0x1 /f
 
 :: Favourites:
 :: 28 (Current)
-:: 26
+:: 16
 :: 2A
-
-:: From my research it appears that no foreground boost may be better (if your system is modern)
+:: 26
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v "Win32PrioritySeparation" /t REG_DWORD /d 0x28 /f
 
 REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\PriorityControl" /v "IRQ8Priority" /t REG_DWORD /d 0x1 /f
